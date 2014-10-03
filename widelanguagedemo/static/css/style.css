@@ -10,6 +10,8 @@ html {
 
 body {
   padding-top: 60px;
+  font-size: 21px;
+  font-weight: 200;
 }
 
 section {
@@ -22,7 +24,7 @@ textarea {
 
 .container-narrow{
   margin: 0 auto;
-  max-width: 700px;
+  max-width: 800px;
 }
 
 /* Forms */
@@ -83,4 +85,18 @@ footer .footer-nav {
   float: right;
   margin-right: 25px;
   list-style: none;
+}
+
+.jumbotron {
+  text-align: center;
+  background: #fff;
+}
+
+.btn {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.search-form {
+  margin-top: 2em;
 }
