@@ -26,9 +26,5 @@ Flask-Assets==0.10
 cssmin>=0.1.4
 jsmin>=2.0.4
 
-# Auth
-Flask-Login==0.2.11
-Flask-Bcrypt==0.6.0
-
 # Caching
 Flask-Cache>=0.12

@@ -5,14 +5,12 @@ from flask import Flask, render_template
 from widelanguagedemo.settings import ProdConfig
 from widelanguagedemo.assets import assets
 from widelanguagedemo.extensions import (
-    bcrypt,
     cache,
     db,
-    login_manager,
     migrate,
     debug_toolbar,
 )
-from widelanguagedemo import public, user
+from widelanguagedemo import public
 
 
 def create_app(config_object=ProdConfig):
@@ -31,10 +29,8 @@ def create_app(config_object=ProdConfig):
 
 def register_extensions(app):
     assets.init_app(app)
-    bcrypt.init_app(app)
     cache.init_app(app)
     db.init_app(app)
-    login_manager.init_app(app)
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
     return None
@@ -42,7 +38,6 @@ def register_extensions(app):
 
 def register_blueprints(app):
     app.register_blueprint(public.views.blueprint)
-    app.register_blueprint(user.views.blueprint)
     return None
 
 
