@@ -45,8 +45,9 @@ serve:
 	$(RUN) runserver
 
 prodserve:
-	WIDELANGUAGEDEMO_ENV=prod $(ENV)/bin/gunicorn widelanguagedemo.app:create_app\(\) -b 0.0.0.0:5000 -w 3
+	WIDELANGUAGEDEMO_ENV=prod $(ENV)/bin/gunicorn widelanguagedemo.app:create_app\(\) -b 0.0.0.0:80 -w 3
 
 bootstrap:
-	which marelle &>/dev/null || bash -c "`curl https://raw.github.com/larsyencken/marelle/master/bootstrap_global.sh`"
-	cd wide-language-demo && marelle meet widelanguagedemo
+	bash -c "`curl https://raw.githubusercontent.com/larsyencken/marelle/master/bootstrap_global.sh`"
+	marelle meet widelanguagedemo
+
