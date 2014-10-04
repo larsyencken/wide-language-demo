@@ -45,18 +45,13 @@ def build_index():
 
 
 def build_languages():
-    codes = set()
-    languages = []
+    languages = {}
     input_file = path.join(path.dirname(__file__),
                            'data/ext/name_index_20140320.json')
     records = json.load(open(input_file))
     for rec in records:
         inverted_name = rec['inverted_name']
         code = rec['id']
-        codes.add(code)
-        languages.append('{0} [{1}]'.format(inverted_name, code))
+        languages[code] = inverted_name
 
-    languages.sort()
-
-    return {'codes': codes,
-            'languages': languages}
+    return languages

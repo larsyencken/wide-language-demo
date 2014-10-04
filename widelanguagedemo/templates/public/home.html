@@ -25,14 +25,17 @@
 
   {% if has_query %}
     {% if record %}
-    <div class="record-audio">
-      <audio controls autoplay>
-        <source src="{{ record['media_urls'][0] }}" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-    <div class="record-raw">
-      <pre>{{ record_json }}</pre>
+    <div class="language-info">
+      <h2>{{inverted_name}}</h2>
+      <div class="record-audio">
+        <audio controls autoplay>
+          <source src="{{ record['media_urls'][0] }}" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="record-raw">
+        <pre>{{ record_json }}</pre>
+      </div>
     </div>
     {% else %}
     <div class="no-lang-message">
