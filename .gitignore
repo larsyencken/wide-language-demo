@@ -49,3 +49,5 @@ env*
 # asset bundling
 widelanguagedemo/static/css/common.css
 widelanguagedemo/static/js/common.js
+
+.DS_Store
