@@ -24,14 +24,8 @@ has_exec git || apt-get install -y git
 has_exec pip || apt-get install -y python-dev python-pip build-essential python-virtualenv
 
 su - ubuntu <<EOF
-set -ex
 
-test -d wide-language-demo || git clone https://github.com/larsyencken/wide-language-demo
-
+test -d wide-language-demo || git checkout https://github.com/larsyencken/wide-language-demo
 cd wide-language-demo
-git pull
-git submodule init
-git submodule update
-
-make env
+make bootstreap
 EOF
