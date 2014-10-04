@@ -24,9 +24,9 @@
   </div>
 
   {% if has_query %}
-    {% if record %}
     <div class="language-info">
       <h2>{{inverted_name}}</h2>
+    {% if record %}
       <div class="record-audio">
         <audio controls autoplay>
           <source src="{{ record['media_urls'][0] }}" type="audio/mpeg">
@@ -36,13 +36,11 @@
       <div class="record-raw">
         <pre>{{ record_json }}</pre>
       </div>
-    </div>
     {% else %}
-    <div class="no-lang-message">
-      <p>No matches were found.</p>
-      <p>Know a good source of this language? Please <a href="https://github.com/larsyencken/wide-language-index/blob/master/CONTRIBUTING.md">add it</a>.</p>
-    </div>
+      <p>There are no samples of this language in our dataset.</p>
+      <p>Know a good source? Please <a href="https://github.com/larsyencken/wide-language-index/blob/master/CONTRIBUTING.md">add it</a>.</p>
     {% endif %}
+    </div>
   {% endif %}
 </div><!-- /.jumbotron -->
 {% endblock %}
