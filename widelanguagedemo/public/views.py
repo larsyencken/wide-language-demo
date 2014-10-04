@@ -11,40 +11,41 @@ Public facing frontpage.
 import json
 import random
 
-from flask import (Blueprint, request, render_template, flash, url_for,  # noqa
-                   redirect, session)
-
-from widelanguagedemo.utils import flash_errors  # noqa
-from widelanguagedemo.database import db  # noqa
+from flask import (Blueprint, request, render_template, redirect)
 
 from . import forms
-from .. import index
+from ..index import util
 
 blueprint = Blueprint('public', __name__, static_folder="../static")
 
 
 @blueprint.route("/", methods=["GET", "POST"])
 def home():
-    is_random = False
-    record = None
-    record_json = None
+    language = request.args.get('language')
+    if language:
+        return _render_language(language)
 
-    if request.args:
-        ind = index.get_index()
-        lang = request.args.get('language')
-        if lang == 'random':
-            is_random = True
-            lang = random.choice(list(ind.keys()))
+    form = forms.SearchForm()
+    return render_template("public/home.html",
+                           form=form,
+                           has_query=False)
 
-        records = ind[lang]
 
-        if records:
-            record = random.choice(records)
-            record_json = json.dumps(record, indent=2, sort_keys=True)
+def _render_language(language):
+    index = util.get_index()
+    if language == 'random':
+        language = random.choice(list(index.keys()))
+        return redirect('/?language={0}'.format(language))
 
-    if is_random:
-        form = forms.SearchForm()
-    else:
-        form = forms.SearchForm(request.args)
+    records = index.get(language)
+    inverted_name = util.get_languages().get(language)
+
+    if records:
+        record = random.choice(records)
+        record_json = json.dumps(record, indent=2, sort_keys=True)
+
+    form = forms.SearchForm(request.args)
     return render_template("public/home.html", form=form, record=record,
-                           record_json=record_json)
+                           record_json=record_json,
+                           inverted_name=inverted_name,
+                           has_query=bool(request.args))

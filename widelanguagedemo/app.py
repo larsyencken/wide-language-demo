@@ -10,7 +10,7 @@ from widelanguagedemo.extensions import (
     migrate,
     debug_toolbar,
 )
-from widelanguagedemo import public
+from widelanguagedemo import public, index
 
 
 def create_app(config_object=ProdConfig):
@@ -38,6 +38,7 @@ def register_extensions(app):
 
 def register_blueprints(app):
     app.register_blueprint(public.views.blueprint)
+    app.register_blueprint(index.views.blueprint)
     return None
 
 
