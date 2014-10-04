@@ -18,7 +18,7 @@ from widelanguagedemo.utils import flash_errors  # noqa
 from widelanguagedemo.database import db  # noqa
 
 from . import forms
-from .. import index
+from ..index import util
 
 blueprint = Blueprint('public', __name__, static_folder="../static")
 
@@ -30,13 +30,13 @@ def home():
     record_json = None
 
     if request.args:
-        ind = index.get_index()
+        index = util.get_index()
         lang = request.args.get('language')
         if lang == 'random':
             is_random = True
-            lang = random.choice(list(ind.keys()))
+            lang = random.choice(list(index.keys()))
 
-        records = ind[lang]
+        records = index[lang]
 
         if records:
             record = random.choice(records)

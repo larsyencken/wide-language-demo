@@ -12,7 +12,9 @@
 
   <div class="search-form">
     <form class="form-inline">
-      {{ form.language(placeholder="Enter a language") }}
+      <div id="prefetch">
+      {{ form.language(placeholder="Enter a language", class="typeahead", size=30) }}
+      </div>
       <button type="submit" class="btn btn-primary">Search</button>
     </form>
     <form class="form-inline">
