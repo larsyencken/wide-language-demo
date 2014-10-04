@@ -18,6 +18,7 @@ help:
 	@echo "make dbupgrade   apply any pending migrations"
 	@echo "make dbshell     enter a database shell"
 	@echo "make serve       run the debug server"
+	@echo "make prodserve   run the production server"
 	@echo ""
 
 env:
@@ -41,4 +42,7 @@ dbshell:
 	$(RUN) db shell
 
 serve:
-	$(RUN) server
+	$(RUN) runserver
+
+prodserve:
+	WIDELANGUAGEDEMO_ENV=prod $(ENV)/bin/gunicorn widelanguagedemo.app:create_app\(\) -b 0.0.0.0:5000 -w 3

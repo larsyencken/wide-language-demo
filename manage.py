@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
-from flask.ext.script import Manager, Shell, Server
+from flask.ext.script import Manager, Shell
 from flask.ext.migrate import MigrateCommand
 
 from widelanguagedemo.app import create_app
@@ -31,7 +31,6 @@ def test():
     exit_code = pytest.main(['tests', '--verbose'])
     return exit_code
 
-manager.add_command('server', Server())
 manager.add_command('shell', Shell(make_context=_make_context))
 manager.add_command('db', MigrateCommand)
 
