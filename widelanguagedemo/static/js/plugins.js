@@ -7,13 +7,7 @@ var languages = new Bloodhound({
   prefetch: {
     // url points to a json file that contains an array of country names, see
     // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
-    url: '/languages.json',
-    // the json file contains an array of strings, but the Bloodhound
-    // suggestion engine expects JavaScript objects so this converts all of
-    // those strings
-    filter: function(list) {
-      return $.map(list, function(language) { return { name: language }; });
-    }
+    url: '/static/data/languages.json',
   }
 });
 
@@ -24,8 +18,16 @@ languages.initialize();
 // options being used
 $('#prefetch .typeahead').typeahead(null, {
   name: 'languages',
-  displayKey: 'name',
+  displayKey: 'code',
   // `ttAdapter` wraps the suggestion engine in an adapter that
   // is compatible with the typeahead jQuery plugin
-  source: languages.ttAdapter()
+  source: languages.ttAdapter(),
+	templates: {
+		empty: [
+			'<div class="empty-message">',
+			'unable to find any languages matching the current query',
+			'</div>'
+		].join('\n'),
+		suggestion: Handlebars.compile('<p>{{name}} [{{code}}]</p>')
+	}
 });

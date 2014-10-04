@@ -120,11 +120,10 @@ footer .footer-nav {
   display: inline;
 }
 
-
 .typeahead,
 .tt-query,
 .tt-hint {
-  width: 396px;
+  width: 390px;
   padding: 2px 4px;
   border: 2px solid #ccc;
   -webkit-border-radius: 8px;
@@ -179,4 +178,9 @@ footer .footer-nav {
 
 .tt-suggestion p {
   margin: 0;
+}
+
+.empty-message {
+  padding: 5px 10px;
+  text-align: center;
 }

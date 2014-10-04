@@ -12,6 +12,7 @@ js = Bundle(
     "libs/jQuery/dist/jquery.js",
     "libs/bootstrap/dist/js/bootstrap.js",
     "libs/typeahead.bundle.js",
+    "libs/handlebars/handlebars.js",
     "js/plugins.js",
     filters='jsmin',
     output="public/js/common.js"
