@@ -1,0 +1,3 @@
+[submodule "widelanguagedemo/index/data"]
+	path = widelanguagedemo/index/data
+	url = https://github.com/larsyencken/wide-language-index

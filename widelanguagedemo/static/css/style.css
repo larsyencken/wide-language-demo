@@ -100,3 +100,17 @@ footer .footer-nav {
 .search-form {
   margin-top: 2em;
 }
+
+.record-audio {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.record-raw {
+  margin-top: 2em;
+  text-align: left;
+}
+
+.form-inline {
+  display: inline;
+}

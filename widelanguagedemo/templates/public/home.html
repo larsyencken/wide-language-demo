@@ -11,13 +11,26 @@
   <p>Samples of over 80 different languages, free for use. <a href="https://github.com/larsyencken/wide-language-index/">Learn more &raquo;</a></p>
 
   <div class="search-form">
-    <form id="search-form" class="form-inline">
-      <div class="form-group">
-        {{ form.language(placeholder="Enter a language") }}
-      </div>
-      <button class="btn btn-primary">Search</button>
-      <button class="btn btn-default">Surprise me</button>
+    <form class="form-inline">
+      {{ form.language(placeholder="Enter a language") }}
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <form class="form-inline">
+      <input type="hidden" name="language" value="random">
+      <button type="submit" class="btn btn-default">Surprise me</button>
     </form>
   </div>
+
+  {% if record %}
+  <div class="record-audio">
+    <audio controls autoplay>
+      <source src="{{ record['media_urls'][0] }}" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+  <div class="record-raw">
+    <pre>{{ record_json }}</pre>
+  </div>
+  {% endif %}
 </div><!-- /.jumbotron -->
 {% endblock %}
