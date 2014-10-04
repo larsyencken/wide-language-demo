@@ -45,3 +45,7 @@ docs/_build
 # Virtualenvs
 env
 env*
+
+# asset bundling
+widelanguagedemo/static/css/common.css
+widelanguagedemo/static/js/common.js
