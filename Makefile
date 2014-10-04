@@ -45,7 +45,7 @@ serve:
 	$(RUN) runserver
 
 prodserve:
-	WIDELANGUAGEDEMO_ENV=prod $(ENV)/bin/gunicorn widelanguagedemo.app:create_app\(\) -b 0.0.0.0:80 -w 3 --pid server.pid
+	WIDELANGUAGEDEMO_ENV=prod $(ENV)/bin/gunicorn widelanguagedemo.app:create_app\(\) -b 0.0.0.0:5000 -w 3 --pid server.pid
 
 bootstrap:
 	bash -c "`curl https://raw.githubusercontent.com/larsyencken/marelle/master/bootstrap_global.sh`"
