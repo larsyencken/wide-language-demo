@@ -51,3 +51,5 @@ bootstrap:
 	bash -c "`curl https://raw.githubusercontent.com/larsyencken/marelle/master/bootstrap_global.sh`"
 	marelle meet widelanguagedemo
 
+deploy:
+	fab deploy
