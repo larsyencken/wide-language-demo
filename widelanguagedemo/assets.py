@@ -14,7 +14,7 @@ js = Bundle(
     "libs/typeahead.bundle.js",
     "libs/handlebars/handlebars.js",
     "js/plugins.js",
-    filters='jsmin',
+    filters='rjsmin',
     output="public/js/common.js"
 )
 
