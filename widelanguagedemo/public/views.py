@@ -40,6 +40,8 @@ def _render_language(language):
     records = index.get(language)
     inverted_name = util.get_languages().get(language)
 
+    record = None
+    record_json = None
     if records:
         record = random.choice(records)
         record_json = json.dumps(record, indent=2, sort_keys=True)
