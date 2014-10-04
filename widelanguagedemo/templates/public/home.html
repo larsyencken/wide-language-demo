@@ -23,16 +23,23 @@
     </form>
   </div>
 
-  {% if record %}
-  <div class="record-audio">
-    <audio controls autoplay>
-      <source src="{{ record['media_urls'][0] }}" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-  <div class="record-raw">
-    <pre>{{ record_json }}</pre>
-  </div>
+  {% if has_query %}
+    {% if record %}
+    <div class="record-audio">
+      <audio controls autoplay>
+        <source src="{{ record['media_urls'][0] }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="record-raw">
+      <pre>{{ record_json }}</pre>
+    </div>
+    {% else %}
+    <div class="no-lang-message">
+      <p>No matches were found.</p>
+      <p>Know a good source of this language? Please <a href="https://github.com/larsyencken/wide-language-index/blob/master/CONTRIBUTING.md">add it</a>.</p>
+    </div>
+    {% endif %}
   {% endif %}
 </div><!-- /.jumbotron -->
 {% endblock %}

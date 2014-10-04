@@ -47,4 +47,5 @@ def home():
     else:
         form = forms.SearchForm(request.args)
     return render_template("public/home.html", form=form, record=record,
-                           record_json=record_json)
+                           record_json=record_json,
+                           has_query=bool(request.args))
