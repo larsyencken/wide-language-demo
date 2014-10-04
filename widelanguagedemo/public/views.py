@@ -22,7 +22,10 @@ blueprint = Blueprint('public', __name__, static_folder="../static")
 @blueprint.route("/", methods=["GET", "POST"])
 def home():
     language = request.args.get('language')
-    if language:
+    if language is not None and not language:
+        return redirect('/')
+
+    elif language:
         return _render_language(language)
 
     form = forms.SearchForm()
