@@ -2,6 +2,7 @@
   "name": "widelanguagedemo",
   "dependencies": {
     "bootstrap": "~3.2.0",
-    "jQuery": "~2.1.0"
+    "jQuery": "~2.1.0",
+		"handlebars": "~2.0.0"
   }
 }
