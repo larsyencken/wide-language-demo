@@ -9,9 +9,14 @@ html {
 }
 
 body {
-  padding-top: 60px;
   font-size: 21px;
   font-weight: 200;
+}
+
+@media (min-height: 400px) {
+  body {
+    padding-top: 60px;
+  }
 }
 
 section {
@@ -123,7 +128,6 @@ footer .footer-nav {
 .typeahead,
 .tt-query,
 .tt-hint {
-  width: 390px;
   padding: 2px 4px;
   border: 2px solid #ccc;
   -webkit-border-radius: 8px;
@@ -191,4 +195,8 @@ footer .footer-nav {
 
 .language-info {
   margin-top: 2em;
+}
+
+button {
+  margin-top: 4px;
 }
