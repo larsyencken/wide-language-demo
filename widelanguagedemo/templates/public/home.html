@@ -25,7 +25,10 @@
 
   {% if has_query %}
     <div class="language-info">
-      <h2>{{inverted_name}}</h2>
+    {% if not is_valid %}
+    <p>This is not a known language. Use autocompletion to help you pick a three-character ISO 693-3 language code, or try the "Surprise me" button.<p>
+    {% else %}
+    <h2>{{ inverted_name }} [{{ record.language }}]</h2>
     {% if record %}
       <div class="record-audio">
         <audio controls autoplay>
@@ -39,6 +42,7 @@
     {% else %}
       <p>There are no samples of this language in our dataset.</p>
       <p>Know a good source? Please <a href="https://github.com/larsyencken/wide-language-index/blob/master/CONTRIBUTING.md">add it</a>.</p>
+    {% endif %}
     {% endif %}
     </div>
   {% endif %}

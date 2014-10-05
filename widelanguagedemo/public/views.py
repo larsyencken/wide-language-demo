@@ -41,6 +41,7 @@ def _render_language(language):
         return redirect('/?language={0}'.format(language))
 
     records = index.get(language)
+    is_valid = language in index
     inverted_name = util.get_languages().get(language)
 
     record = None
@@ -53,4 +54,5 @@ def _render_language(language):
     return render_template("public/home.html", form=form, record=record,
                            record_json=record_json,
                            inverted_name=inverted_name,
-                           has_query=bool(request.args))
+                           has_query=bool(request.args),
+                           is_valid=is_valid)
