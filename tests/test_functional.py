@@ -40,4 +40,4 @@ class TestLanguageSearch:
         assert res.status_code == 200
         assert '<audio' not in res
         assert 'not a known language' not in res
-        assert 'No samples are available' in res
+        assert 'no samples of this language' in res
