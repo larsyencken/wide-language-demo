@@ -50,7 +50,10 @@ def _render_language(language):
         record_json = json.dumps(record, indent=2, sort_keys=True)
 
     form = forms.SearchForm(request.args)
-    return render_template("public/home.html", form=form, record=record,
+    return render_template("public/home.html",
+                           language=language,
+                           form=form,
+                           record=record,
                            record_json=record_json,
                            inverted_name=inverted_name,
                            has_query=bool(request.args),

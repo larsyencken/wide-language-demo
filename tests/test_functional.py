@@ -28,8 +28,7 @@ class TestLanguageSearch:
 
         res = form.submit()
         assert res.status_code == 200
-        assert 'ISO 693-3 language code' in res
-
+        assert 'You need to use an ISO 693-3 language code' in res
 
     def test_search_for_missing_sample_yields_error(self, testapp):
         res = testapp.get("/")
