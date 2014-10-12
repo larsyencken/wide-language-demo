@@ -2,7 +2,7 @@
 Wide Languguage Index
 ===============================
 
-A demo of the wide language index.
+A demo of the wide language index, hosted at http://widelanguageindex.org/.
 
 
 Quickstart
