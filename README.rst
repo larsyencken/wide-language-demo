@@ -1,8 +1,10 @@
 ===============================
-Wide Languguage Index
+Wide Languguage Demo
 ===============================
 
-A demo of the wide language index, hosted at http://widelanguageindex.org/.
+.. image:: https://travis-ci.org/larsyencken/wide-language-demo.png
+
+A demo of the `Wide Language Index <https://github.com/larsyencken/wide-language-index>`_, hosted at http://widelanguageindex.org/.
 
 
 Quickstart
