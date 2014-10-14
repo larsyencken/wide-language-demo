@@ -25,7 +25,7 @@ has_exec pip || apt-get install -y python-dev python-pip build-essential python-
 
 su - ubuntu <<EOF
 
-test -d wide-language-demo || git checkout https://github.com/larsyencken/wide-language-demo
+test -d wide-language-demo || git checkout --recursive https://github.com/larsyencken/wide-language-demo
 cd wide-language-demo
-make bootstreap
+make bootstrap
 EOF
