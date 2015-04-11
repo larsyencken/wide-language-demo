@@ -32,7 +32,7 @@
     {% if record %}
       <div class="record-audio">
         <audio controls autoplay>
-          <source src="{{ record['media_urls'][0] }}" type="audio/mpeg">
+          <source src="{{ record['media_urls'][-1] }}" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
       </div>
